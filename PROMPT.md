@@ -80,4 +80,8 @@ verification, say which test file and what it asserts.
    test passes, a duplication is gone, a benchmark hits a number.
 
 3. **Order matters.** Earlier tasks must not depend on later ones.
-   If task N consumes output from task M, M comes first.
+   If task N consumes output from task M, M comes first. This includes project structure
+   prerequisities : any file required for code in another task to be importable, runnable, or testable
+   (e.g. , package '__init__.py' files, configuration files referenced by tooling) must be created
+   in a task that precedes the task depending on it.
+   When in doubt, scaffoding tasks come first. 
